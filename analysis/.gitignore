@@ -1,0 +1,5 @@
+# data files
+data
+
+# notebook checkpoints
+.ipynb_checkpoints
