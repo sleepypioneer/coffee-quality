@@ -1,4 +1,4 @@
-FROM agrigorev/zoomcamp-model:3.8.12-slim
+FROM agrigorev/zoomcamp-model:3.9.5-slim
 
 RUN pip install pipenv
 
