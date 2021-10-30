@@ -1,0 +1,8 @@
+# virtual environment
+coffee-quality/
+
+# visual studio code
+.vscode/
+
+# model artifacts
+*.bin
