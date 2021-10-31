@@ -57,3 +57,10 @@ Then go to the respective README for further instructions on running either the 
 ## Data 💽
 
 The data used for this project is gathered from [Coffee Quality Institute (CQI)](https://database.coffeeinstitute.org/) in January, 2018. Scraping was performed by [James LeDoux](https://github.com/jldbc) and more details can be found [here](https://github.com/jldbc/coffee-quality-database)
+
+## Linting your code ✔️
+We are linting the project with Black and Flake8 we reccomend running these both locally before pushing code as they are enforced in the github actions.
+
+## Github actions 🎬
+
+When pushing code to github it will run actions for linting the code, you can find, add and update these actions in /.github/workflows.
