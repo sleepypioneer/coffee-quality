@@ -5,11 +5,11 @@ name = "pypi"
 
 [packages]
 scikit-learn = "==1.0"
-flask = "*"
-gunicorn = "*"
-requests = "*"
-jsonify = "*"
-xgboost = "*"
+flask = "==2.0.2"
+gunicorn = "==20.1.0"
+requests = "==2.26.0"
+jsonify = "==0.5"
+xgboost= "==1.5.0"
 
 [dev-packages]
 
