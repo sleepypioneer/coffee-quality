@@ -9,6 +9,7 @@ flask = "*"
 gunicorn = "*"
 requests = "*"
 jsonify = "*"
+xgboost = "*"
 
 [dev-packages]
 

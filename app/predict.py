@@ -4,14 +4,10 @@ from flask import request
 
 app = Flask("coffee-quality-prediction")
 
-model_file = open("model2.bin", "rb")
-model = pickle.load(model_file)
+model_file = "./models/model_v1.bin"
 
-dv_file = open("dv.bin", "rb")
-dv = pickle.load(dv_file)
-
-model_file.close()
-dv_file.close()
+with open(model_file, 'rb') as f_in:
+   (dv, model) = pickle.load(f_in )
 
 
 @app.route("/predict", methods=["POST"])
@@ -19,12 +15,11 @@ def predict():
     sample = request.get_json()
 
     X = dv.transform([sample])
-    y_pred = model.predict_proba(X)[0, 1]
-    churn = y_pred >= 0.5
+    y_pred = model.predict(X)
 
     result = {
-        "quality_score_probability": float(y_pred),
-        "score": bool(churn)
+        "quality_score_prediction": float(y_pred),
+        # "score": bool(churn)
         # bool_ is coming from numpy which our service doesn't know
         # how to turn into text so we need to wrap it!
         # similary we do this for y_pred by making it a float

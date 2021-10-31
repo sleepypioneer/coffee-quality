@@ -51,3 +51,5 @@ url = "http://localhost:9696/predict"
 requests.post(url, json=coffee_sample).json()
 # returns python dictionary of response
 ```
+
+There is a sample code for this [here](./request.py) which you can run with `pipenv run python request.py`.
