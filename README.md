@@ -48,8 +48,9 @@ python3 -m venv coffee-quality
 # start the virtual environment
 source coffee-quality/bin/activate
 
-# install pipenv required for the app's dependency management
-pip install pipenv
+# install virtual environment depencies for linting locally and
+# pipenv required for the app's dependency management
+pip install -r requirements.txt
 ```
 
 Then go to the respective README for further instructions on running either the [analysis notebooks](./analysis/README.md) or the [prediction flask application](./app/README.md)
