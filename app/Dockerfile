@@ -1,4 +1,4 @@
-FROM agrigorev/zoomcamp-model:3.9.5-slim
+FROM python:3.9.5-slim
 
 RUN pip install pipenv
 
@@ -9,6 +9,4 @@ RUN pipenv install --system --deploy
 
 COPY ["predict.py", "./"]
 
-EXPOSE 9696
-
-ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:9696", "predict:app"]
+ENTRYPOINT ["gunicorn", "predict:app"]
