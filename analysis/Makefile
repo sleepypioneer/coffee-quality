@@ -1,4 +1,4 @@
-IMG_NAME := machine-learning-zoomcamp
+IMG_NAME := coffee-quality/analysis
 DOCKER_BUILD_CONTEXT="."
 
 .PHONY: build
@@ -9,12 +9,11 @@ build:
 
 .PHONY: dev
 dev: build
-	docker run -it --rm --network host \
-		-v "$(shell pwd)/data:/work/data" \
-		-v "$(shell pwd)/notebooks:/work" -w /work \
+	docker run -i --network host \
+		-v "$(shell pwd):/work" -w /work \
+		-e PYTHONPATH=/work/src \
 		$(IMG_NAME) \
-		jupyter notebook \
-			--notebook-dir=/work \
+		jupyter lab \
 			--ip='0.0.0.0' --port=8888 \
 			--no-browser --allow-root \
 			--NotebookApp.token='' --NotebookApp.password=''
