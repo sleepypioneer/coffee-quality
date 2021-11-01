@@ -2,6 +2,10 @@
 
 This code runs a small flask based webserver which can make predictions on the given coffee samples total cupping score provided the following attributes are passed as a JSON.
 
+## Training the model
+
+The script [train.py]() can be used to train a model with the final model and parameters. After running it will print the current model and parameters as well as the auc and rsme scores for the model. A `model.bin` artifact will be saved in the `./models` directory. Note that these are ignored by git and therefore not saved to github. **You need to run this before you can run the application**.
+
 ## Running locally 🖥️
 
 ### Install dependencies ⚙️
