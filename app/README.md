@@ -35,10 +35,38 @@ make run-with-docker
 ```sh
 curl --header "Content-Type: application/json" \
     --request POST \
-    --data '{"username":"xyz","password":"xyz"}' \
-    http://localhost:9696/predict
-
+    http://localhost:9696/predict \
+    --data '
+        {"moisture":0.12,
+        "quakers":0.0,
+        "category_two_defects:15,
+        "species":"Arabica",
+        "owner":"sanjava coffee",
+        "farm_name":"various",
+        "company":"pt. shriya artha nusantara",
+        "region":"sapan toraja",
+        "producer":"vary farm",
+        "in_country_partner":"Specialty Coffee Association of Indonesia",
+        "harvest_year":2017,
+        "owner_1":"SanJava Coffee",
+        "variety":"Sulawesi"}
+    '
+    EOT
 ```
+
+data = {"moisture":0.12,
+"quakers":0.0,
+"category_two_defects:15,
+"species":"Arabica",
+"owner":"sanjava coffee",
+"farm_name":"various",
+"company":"pt. shriya artha nusantara",
+"region":"sapan toraja",
+"producer":"vary farm",
+"in_country_partner":"Specialty Coffee Association of Indonesia",
+"harvest_year":2017,
+"owner_1":"SanJava Coffee",
+"variety":"Sulawesi"}
 
 ### Using Python
 

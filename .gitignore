@@ -6,3 +6,6 @@ coffee-quality/
 
 # model artifacts
 *.bin
+
+# data
+data/

@@ -12,6 +12,14 @@ build:
 run-with-docker: build
 	docker run -p 9696:9696 -it $(IMG_NAME):$(IMG_TAG) --bind 0.0.0.0
 
+.PHONY: train
+train:
+	pipenv run python train.py
 
+.PHONY: dev
 dev:
 	pipenv run gunicorn --bind 0.0.0.0:9696 predict:app
+
+.PHONY: request
+request:
+	pipenv run python request.py

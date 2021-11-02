@@ -12,13 +12,17 @@ with open(model_file, 'rb') as f_in:
 
 @app.route("/predict", methods=["POST"])
 def predict():
+    print("Jess")
     sample = request.get_json()
+    print(sample)
 
-    X = dv.transform([sample])
-    y_pred = model.predict(X)
+    # dict = [sample.to_dict(orient='records')
+
+    X_val = dv.transform(sample)
+    y_pred = model.predict(X_val)
 
     result = {
-        "quality_score_prediction": float(y_pred),
+        "sample_over_85_points_prediction": str(y_pred[0] == 1),
         # "score": bool(churn)
         # bool_ is coming from numpy which our service doesn't know
         # how to turn into text so we need to wrap it!
