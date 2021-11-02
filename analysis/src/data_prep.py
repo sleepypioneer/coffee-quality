@@ -20,7 +20,13 @@ def handle_na_values(df):
 
 
 def convert_bag_weight(weight_string):
-    return 0
+    if "kg" in weight_string:
+        parts = weight_string.split(" ")
+        return parts[0]
+    if "lbs" in weight_string:
+        parts = weight_string.split(" ")
+        return f"{int(parts[0]) * 0.45359237:.1f}"
+    return None
 
 
 def total_points_over_85(y):

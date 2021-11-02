@@ -48,27 +48,39 @@ def train_random_forest(df, y_train):
 
 
 def feature_importance(
-    features, df_train, y_train, df_val, y_val, feature_to_remove=""
+    features, df_train, y_train, df_val, y_val, feature_to_remove="", model_type="LR"
 ):
     if feature_to_remove:
         sub_features = np.array([x for x in features if x != feature_to_remove])
     else:
         sub_features = features
 
-    dv, model = train_logistic_regression(df_train[sub_features], y_train)
-
+    if model_type == "LR":
+        dv, model = train_logistic_regression(df_train[sub_features], y_train)
+    if model_type == "DT":
+        dv, model = train_decision_tree(df_train[sub_features], y_train)
+    if model_type == "RF":
+        dv, model = train_random_forest(df_train[sub_features], y_train)
+    
     y_pred = validate_model(df_val, y_val, dv, model)
 
-    accuracy, auc, rsme, precision, f1, recall = model_evaluation(y_val, y_pred)
+    accuracy, auc, rsme = model_evaluation(y_val, y_pred)
 
-    return (feature_to_remove, accuracy, auc, rsme, precision, f1, recall)
+    return (feature_to_remove, accuracy, auc, rsme)
 
 
-def check_feature_importance(features, df_train, y_train, df_val, y_val):
+def check_feature_importance(features, df_train, y_train, df_val, y_val, model_type="LR"):
     scores = []
     for feature in features:
         scores.append(
-            feature_importance(features, df_train, y_train, df_val, y_val, feature)
+            feature_importance(
+                features,
+                df_train,
+                y_train,
+                df_val, y_val,
+                feature,
+                model_type=model_type
+            )
         )
 
     cols = [
@@ -76,8 +88,5 @@ def check_feature_importance(features, df_train, y_train, df_val, y_val):
         "accuracy",
         "auc",
         "rsme",
-        "precision",
-        "f1_score",
-        "recall",
     ]
     return pd.DataFrame(scores, columns=cols)
