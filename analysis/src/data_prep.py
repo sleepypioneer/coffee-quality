@@ -20,6 +20,15 @@ def handle_na_values(df):
     return df.dropna()
 
 
+def convert_bag_weight(weight_string):
+    return 0
+
+
+def total_points_over_85(y):
+    y = [1 if x > 85 else 0 for x in y]
+    return y
+
+
 def split_data(raw_data, features):
     np.random.seed(42)
     
