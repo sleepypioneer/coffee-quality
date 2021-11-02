@@ -18,7 +18,7 @@ train:
 
 .PHONY: dev
 dev:
-	pipenv run gunicorn --bind 0.0.0.0:9696 predict:app
+	pipenv run gunicorn --bind 0.0.0.0:8000 predict:app
 
 .PHONY: request
 request:

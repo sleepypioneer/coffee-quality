@@ -8,7 +8,7 @@ Coffee quality is assessed by tastings called [cuppings](https://www.baristainst
 
 Predicting quality before roasting could be useful for farmers who often don't have the means to cup their own coffee or for buyers looking to narrow down the selection of coffee they are tasting based on a range of scores (ie only tasting coffees predicted to be over 90 points or between 85 - 90)
 
-This project focuses on predicting the total score, however it could also be interesting to look at the individual scores to predict for example a coffee's sweetness or aroma score and potentially offer recommendations on coffees based on a user's preference.
+This project focuses on a classification problem, predicting if a coffee samples total cup score is above 85, however it could also be interesting to look at the individual scores to predict for example a coffee's sweetness or aroma score and potentially offer recommendations on coffees based on a user's preference.
 
 
 ## Navigating the project repository 🗂️
@@ -28,7 +28,7 @@ Where to find the files for evaluation :)
     ```sh
         curl --header "Content-Type: application/json" \
             --request POST \
-            -d @app/test_data.json \
+            -d @app/test_data/coffee_sample.json \
             https://coffee-quality-prediction.herokuapp.com/predict
     ```
 
@@ -60,8 +60,8 @@ Then go to the respective README for further instructions on running either the 
 The data used for this project is gathered from [Coffee Quality Institute (CQI)](https://database.coffeeinstitute.org/) in January, 2018. Scraping was performed by [James LeDoux](https://github.com/jldbc) and more details can be found [here](https://github.com/jldbc/coffee-quality-database)
 
 ## Linting your code ✔️
-We are linting the project with Black and Flake8 we reccomend running these both locally before pushing code as they are enforced in the github actions.
+The project is linted with [Black](https://pypi.org/project/black/) and [Flake8](https://pypi.org/project/flake8/) and it is reccomended running these both locally (they are already installed inside the virtual environment following the instructions above) before pushing code as they are enforced in the github actions (see below).
 
 ## Github actions 🎬
 
-When pushing code to github it will run actions for linting the code, you can find, add and update these actions in /.github/workflows.
+When pushing code to github it will run actions for linting the code, you can find, add and update these actions in [.github/workflows](./.github/workflows).

@@ -4,7 +4,7 @@ This code runs a small flask based webserver which can make predictions on the g
 
 ## Training the model
 
-The script [train.py]() can be used to train a model with the final model and parameters. After running it will print the current model and parameters as well as the auc and rsme scores for the model. A `model.bin` artifact will be saved in the `./models` directory. Note that these are ignored by git and therefore not saved to github. **You need to run this before you can run the application**.
+The script [train.py](./train.py) can be used to train a model with the final model and parameters. After running it will print the current model and parameters as well as the auc and rsme scores for the model. A `model.bin` artifact will be saved in the `./models` directory. Note that these are ignored by git and therefore not saved to github. **You need to run this before you can run the application**.
 
 ## Running locally 🖥️
 
@@ -18,11 +18,15 @@ pipenv install
 
 ### Running the application ▶️
 
+The below command will run the application locally within the virtual environment. 
+
 ```sh
 make dev
 ```
 
 ## Running with Docker 🐳
+
+The below command will both build the Docker image and run it.
 
 ```sh
 make run-with-docker
@@ -36,7 +40,7 @@ make run-with-docker
 curl --header "Content-Type: application/json" \
     --request POST \
     http://localhost:8000/predict \
-    -d @test_data.json
+    -d @test_data/coffee_sample.json
 ```
 
 ### Using Python
@@ -49,7 +53,7 @@ coffee_sample = {
     ...
 }
 
-url = "http://localhost:9696/predict"
+url = "http://localhost:8000/predict"
 
 requests.post(url, json=coffee_sample).json()
 # returns python dictionary of response

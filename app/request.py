@@ -16,7 +16,7 @@ coffee_sample = {
     "variety": "Sulawesi",
 }
 
-url = "http://localhost:9696/predict"
+url = "http://localhost:8000/predict"
 
 resp = requests.post(url, json=coffee_sample).json()
 
