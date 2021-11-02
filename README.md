@@ -28,7 +28,7 @@ Where to find the files for evaluation :)
     ```sh
         curl --header "Content-Type: application/json" \
             --request POST \
-            --data '{"username":"xyz","password":"xyz"}' \
+            -d @app/test_data.json \
             https://coffee-quality-prediction.herokuapp.com/predict
     ```
 
