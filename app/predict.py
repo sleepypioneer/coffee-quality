@@ -6,8 +6,8 @@ app = Flask("coffee-quality-prediction")
 
 model_file = "./models/model_v1.bin"
 
-with open(model_file, 'rb') as f_in:
-   (dv, model) = pickle.load(f_in )
+with open(model_file, "rb") as f_in:
+    (dv, model) = pickle.load(f_in)
 
 
 @app.route("/predict", methods=["POST"])
