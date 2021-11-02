@@ -61,7 +61,7 @@ def feature_importance(
         dv, model = train_decision_tree(df_train[sub_features], y_train)
     if model_type == "RF":
         dv, model = train_random_forest(df_train[sub_features], y_train)
-    
+
     y_pred = validate_model(df_val, y_val, dv, model)
 
     accuracy, auc, rsme = model_evaluation(y_val, y_pred)
@@ -69,7 +69,9 @@ def feature_importance(
     return (feature_to_remove, accuracy, auc, rsme)
 
 
-def check_feature_importance(features, df_train, y_train, df_val, y_val, model_type="LR"):
+def check_feature_importance(
+    features, df_train, y_train, df_val, y_val, model_type="LR"
+):
     scores = []
     for feature in features:
         scores.append(
@@ -77,9 +79,10 @@ def check_feature_importance(features, df_train, y_train, df_val, y_val, model_t
                 features,
                 df_train,
                 y_train,
-                df_val, y_val,
+                df_val,
+                y_val,
                 feature,
-                model_type=model_type
+                model_type=model_type,
             )
         )
 
