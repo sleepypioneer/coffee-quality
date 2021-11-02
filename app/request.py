@@ -16,7 +16,7 @@ coffee_sample = {
     "variety": "Sulawesi",
 }
 
-url = "http://localhost:9696/predict"
+url = "https://coffee-quality-prediction.herokuapp.com/predict"
 
 resp = requests.post(url, json=coffee_sample).json()
 

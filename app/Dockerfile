@@ -7,6 +7,7 @@ COPY ["Pipfile", "Pipfile.lock", "./"]
 
 RUN pipenv install --system --deploy
 
+COPY ["./models", "./models"]
 COPY ["predict.py", "./"]
 
 ENTRYPOINT ["gunicorn", "predict:app"]

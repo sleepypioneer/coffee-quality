@@ -12,21 +12,13 @@ with open(model_file, "rb") as f_in:
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    print("Jess")
     sample = request.get_json()
-    print(sample)
-
-    # dict = [sample.to_dict(orient='records')
 
     X_val = dv.transform(sample)
     y_pred = model.predict(X_val)
 
     result = {
         "sample_over_85_points_prediction": str(y_pred[0] == 1),
-        # "score": bool(churn)
-        # bool_ is coming from numpy which our service doesn't know
-        # how to turn into text so we need to wrap it!
-        # similary we do this for y_pred by making it a float
     }
 
     return jsonify(result)

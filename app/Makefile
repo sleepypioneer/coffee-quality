@@ -10,7 +10,7 @@ build:
 
 .PHONY: run-with-docker
 run-with-docker: build
-	docker run -p 9696:9696 -it $(IMG_NAME):$(IMG_TAG) --bind 0.0.0.0
+	docker run -p 8000:8000 -it $(IMG_NAME):$(IMG_TAG) --bind 0.0.0.0
 
 .PHONY: train
 train:
