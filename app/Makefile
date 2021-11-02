@@ -23,3 +23,15 @@ dev:
 .PHONY: request
 request:
 	pipenv run python request.py
+
+.PHONY: create-app
+create-app:
+	heroku create --region eu coffee-quality-prediction
+
+.PHONY: push-app
+push-app:
+	heroku container:push web -a coffee-quality-prediction
+
+.PHONY: release-app
+release-app:
+	heroku container:release web -a coffee-quality-prediction

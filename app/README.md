@@ -60,3 +60,20 @@ requests.post(url, json=coffee_sample).json()
 ```
 
 There is a sample code for this [here](./request.py) which you can run with `pipenv run python request.py`.
+
+## Deployment with Heroku
+
+Run the following commands to deploy this project to [Heroku](https://dashboard.heroku.com/login).
+
+```sh
+# login into Heroku
+heroku login
+heroku container:login
+
+# only need to run this the first time to create the app
+make create-app
+
+make push-app
+
+make release-app
+``
